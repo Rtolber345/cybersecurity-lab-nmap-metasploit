@@ -21,8 +21,12 @@ Both Kali Linux and Metasploitable 2 are configured to use a **Host-Only Adapter
 
 ### 🔐 Metasploitable Login
 
+Do:
+```markdown
+\`\`\`plaintext
 Username: msfadmin
 Password: msfadmin
+\`\`\`
 
 After identifying the IP of the Metasploitable VM using ifconfig, I performed a vulnerability scan using Nmap:
 
